@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Calendar Sidebar</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">GoalSeek</div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="search-bar">
+                <input type="text" placeholder="Search Tasks">
+            </div>
+            <button class="dropdown-button">Task</button>
+            <div class="dropdown-content">
+                <a href="#">Add Task</a>
+                <a href="#">Edit Task</a>
+            </div>
+            <button class="dropdown-button">Goal</button>
+            <div class="dropdown-content">
+                <a href="#">Set Goal</a>
+                <a href="#">Track Progress</a>
+            </div>
+            <button class="dropdown-button">Habit</button>
+            <div class="dropdown-content">
+                <a href="#">Start Habit</a>
+                <a href="#">View Streak</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <div id="calendar"></div>
+            <button id="authorize_button">Authorize</button>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 GoalSeek. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

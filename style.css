@@ -1,0 +1,119 @@
+/* General styles */
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #29294d;
+    color: white;
+}
+
+header {
+    background-color: #1d1d2c;
+    padding: 10px 20px;
+    text-align: left;
+    text-indent: 70px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Sidebar styles */
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #25253d;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dropdown-button {
+    width: 100%;
+    background-color: #3c3c63;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.dropdown-button:hover {
+    background-color: #50507a;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #3c3c63;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid #50507a;
+}
+
+.dropdown-content a:hover {
+    background-color: #50507a;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+#calendar {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button#authorize_button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#authorize_button:hover {
+    background-color: #357ae8;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1d1d2c;
+    color: white;
+}
