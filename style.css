@@ -3,7 +3,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-    background-color: #29294d;
+    background-color: #3a3a4e;
     color: white;
 }
 
@@ -11,10 +11,170 @@ header {
     background-color: #1d1d2c;
     padding: 10px 20px;
     text-align: left;
-    text-indent: 70px;
     font-size: 24px;
     font-weight: bold;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1d1d2c;
+}
+
+/* User Icon Styles with Drop Down */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.user-button {
+    background: transparent;
+    border: none;
+}
+.user-menu .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color:#25253d;
+    border-radius: 5px; 
+    z-index: 1000;
+    text-align: center;
+    min-width: 100px;
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+.user-menu .dropdown-content a {
+    padding: 0;
+}
+.user-menu .dropdown-content button,
+.user-menu .dropdown-content a {
+    background-color: transparent;
+    border: none;
+    padding: 10px 10px;
+    color: white;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.user-menu .dropdown-content button:hover,
+.user-menu .dropdown-content a:hover {
+    background-color: #50507a;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* Search Results View */
+#search_results_view {
+    position: relative; /* Makes it overlay the existing sidebar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: #25253d; /* Matches sidebar background */
+    display: none; /* Initially hidden */
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 5; /* Ensure it is above the sidebar content */
+    overflow-y: auto;
+
+}
+
+/* Actual Seach Box */
+.search-input-wrapper {
+    position: relative;
+    margin: 10px 0px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    height: 20px;
+}
+
+
+/* Search input field */
+#search_input {
+    width: 100%;
+    align-items: center;
+    border: none;
+    background: transparent;
+    margin: 5px;
+    padding: 0;
+    font-size: 16px;
+    color: white;
+    outline: none;
+}
+
+#search_input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+/* Search button */
+#search_button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+#search_button:hover {
+    opacity: 1;
+}
+
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+/* Back Arrow Shit */
+.back-arrow {
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+#back_button {
+    background: transparent;
+    border: none;
+    top:0;
+}
+
+
 
 /* Sidebar styles */
 .container {
@@ -37,22 +197,21 @@ header {
     border-radius: 5px;
 }
 
+/* Task, Goal, Habit buttons */
 .dropdown-button {
-    width: 100%;
-    background-color: #3c3c63;
+    background-color: #2d2d44;
     border: none;
-    padding: 10px;
-    text-align: left;
-    margin-bottom: 10px;
+    padding: 12px 20px;
     color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 15px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
 }
 
 .dropdown-button:hover {
-    background-color: #50507a;
+    background-color: #4c4c72;
 }
 
 .dropdown-content {
@@ -80,6 +239,10 @@ header {
 }
 
 
+
+/* Task Overlay */
+
+
 /* Main content styles */
 main {
     flex: 1;
@@ -90,25 +253,55 @@ main {
     max-width: 800px;
     margin: 0 auto;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     color: black;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
 }
 
-button#authorize_button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #4285f4;
-    color: white;
-    border: none;
-    border-radius: 5px;
+
+
+/* Modal stuff */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+    color: black;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-button#authorize_button:hover {
-    background-color: #357ae8;
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
+
+
 
 /* Footer styles */
 footer {
@@ -116,4 +309,13 @@ footer {
     padding: 10px;
     background-color: #1d1d2c;
     color: white;
+}
+
+
+
+
+
+.fc-toolbar {
+    text-transform: capitalize;
+    margin-top: -1px;
 }

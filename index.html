@@ -10,40 +10,86 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
+            
             <div class="navbar-brand">GoalSeek</div>
+            
+            
+            <div class="user-menu">
+                <button class="user-button">
+                    <img src="icons/user-icon.png" align="right" alt="User Icon" class="user-icon">
+                </button>
+                <div class="dropdown-content">
+                    <a href="settings.html">
+                        <button class="settings-link">Settings</button>
+                    </a>
+                    <button id="authorize_button">Sign In</button>
+                    <button id="signout_button" style="display: none;">Sign Out</button>
+                </div>
+            </div>
+
+
         </nav>
     </header>
 
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="search-bar">
-                <input type="text" placeholder="Search Tasks">
-            </div>
-            <button class="dropdown-button">Task</button>
-            <div class="dropdown-content">
-                <a href="#">Add Task</a>
-                <a href="#">Edit Task</a>
-            </div>
-            <button class="dropdown-button">Goal</button>
-            <div class="dropdown-content">
-                <a href="#">Set Goal</a>
-                <a href="#">Track Progress</a>
-            </div>
-            <button class="dropdown-button">Habit</button>
-            <div class="dropdown-content">
-                <a href="#">Start Habit</a>
-                <a href="#">View Streak</a>
-            </div>
-        </aside>
+        <div id="main_sidebar">    
+            <aside class="sidebar">
 
+                <div class="search-bar">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="search_input" placeholder="Search">
+                        <button id="search_button">
+                            <img src="icons/search-icon.png" alt="Search" class="search-icon">
+                            <button id="back_button" style="display: none;">
+                                <img src="icons/back-arrow.png" alt="backarrow" class="back-arrow">
+                            </button>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="sidebar_content">    
+                    <button class="dropdown-button">Task</button>
+                    <div class="dropdown-content">
+                        <a href="#">Add Task</a>
+                        <a href="#">Edit Task</a>
+                    </div>
+                    <button class="dropdown-button">Goal</button>
+                    <div class="dropdown-content">
+                        <a href="#">Set Goal</a>
+                        <a href="#">Track Progress</a>
+                    </div>
+                    <button class="dropdown-button">Habit</button>
+                    <div class="dropdown-content">
+                        <a href="#">Start Habit</a>
+                        <a href="#">View Streak</a>
+                    </div>
+                </div>
+
+                
+                <!-- Search Results View -->
+                <div id="search_results_view" style="display: none;">
+                    <div id="search_results"></div>
+                </div>
+            </aside>
+        </div>
         <!-- Main Content -->
         <main>
             <div id="calendar"></div>
-            <button id="authorize_button">Authorize</button>
+            <div id="eventModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3 id="event-title">Event Title</h3>
+                    <p id="event-time">Start: - End:</p>
+                    <p id="event-description">Description: </p>
+                    <p id="event-location">Location: </p>
+                </div>
+            </div>
+
         </main>
     </div>
 
